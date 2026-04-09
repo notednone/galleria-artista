@@ -1,0 +1,179 @@
+/* RESET E SFONDO FONDAMENTALE */
+body, html {
+  margin: 0;
+  padding: 0;
+  background-color: #050505;
+  color: white;
+  font-family: 'serif';
+  overflow-x: hidden;
+}
+
+.main-container {
+  width: 100vw;
+  background-color: transparent; 
+  position: relative;
+  z-index: 1;
+}
+
+/* NAVBAR ELEGANTE */
+.navbar-elegante {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  padding: 30px 0;
+  display: flex;
+  justify-content: center;
+  z-index: 500; /* Sopra tutto tranne il fullscreen */
+  background: linear-gradient(to bottom, rgba(5,5,5,0.8), transparent);
+}
+
+.nav-links {
+  display: flex;
+  gap: 50px;
+  font-size: 0.75rem;
+  letter-spacing: 4px;
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.nav-links span:hover {
+  opacity: 1;
+}
+
+/* LANDING PAGE */
+.landing {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.artista-nome {
+  font-size: 5rem;
+  letter-spacing: 15px;
+  font-weight: 200;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.citazione-principale {
+  font-style: italic;
+  font-size: 1.2rem;
+  margin-top: 20px;
+  opacity: 0.7;
+}
+
+.bottone-galleria {
+  margin-top: 12vh; /* Leggermente più basso della mediana */
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: white;
+  padding: 15px 40px;
+  letter-spacing: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.bottone-galleria:hover {
+  background: white;
+  color: black;
+}
+
+/* SEZIONE GALLERIA */
+.galleria-section {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5vw;
+  box-sizing: border-box;
+}
+
+.lato-sinistro {
+  flex: 0 0 55%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.immagine-opera {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  cursor: zoom-in;
+}
+
+.divisore-sfumato {
+  flex: 0 0 1px;
+  height: 60vh;
+  background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.4), transparent);
+  margin: 0 4vw;
+}
+
+.lato-destro {
+  flex: 0 0 30%; /* Blocca la larghezza al 30% dello schermo */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 5vw; /* Margine di sicurezza dal bordo destro */
+  box-sizing: border-box; /* Include il padding nel calcolo del 30% */
+  
+  /* REGOLE ANTI-PAROLA LUNGHISSIMA */
+  overflow-wrap: break-word;  /* Forza l'andata a capo */
+  word-wrap: break-word;      /* Compatibilità vecchia */
+  word-break: break-word;     /* Spezza la parola se necessario */
+  hyphens: auto;              /* Se possibile, mette il trattino */
+}
+
+.descrizione-opera {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  font-weight: 300;
+  opacity: 0.9;
+  margin: 0;
+  
+  /* Ulteriore sicurezza */
+  max-width: 100%; 
+  display: inline-block; 
+}
+
+/* FULLSCREEN & SATURNO MODE */
+.fullscreen-overlay {
+  z-index: 9000; /* L'overlay deve stare SOPRA la Scena3D (10) */
+  background-color: rgba(5, 5, 5, 0.98); 
+  pointer-events: all; /* Riceve il click di chiusura */
+}
+
+.immagine-fullscreen {
+  z-index: 9999; /* Sopra tutto */
+  background-color: transparent; /* Fondamentale per vedere l'anello dietro */
+  pointer-events: none; /* Il click "cade" sull'overlay e chiude */
+}
+
+.chiudi-testo {
+  position: absolute;
+  bottom: 5vh;
+  opacity: 0.4;
+  letter-spacing: 5px;
+  font-size: 0.7rem;
+  z-index: 9001;
+}
+
+/* MOBILE ADAPTATION */
+@media (max-width: 768px) {
+  .artista-nome { font-size: 2.5rem; letter-spacing: 5px; }
+  .galleria-section { flex-direction: column; justify-content: center; padding: 40px 20px; }
+  .lato-sinistro { flex: 0 0 40%; width: 100%; }
+  .divisore-sfumato { 
+    width: 60%; height: 1px; 
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
+    margin: 30px 0;
+  }
+  .lato-destro { flex: 0 0 auto; width: 100%; text-align: center; padding: 0; }
+  .immagine-fullscreen { max-width: 90%; }
+}
