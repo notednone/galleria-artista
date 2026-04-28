@@ -9,3 +9,56 @@ npm start
 
 http://localhost:8000/admin/
 http://localhost:3000
+
+
+git clone https://github.com    "la repository"
+cd galleria-artista
+
+Crea l'ambiente: python -m venv venv
+Attivalo: .\venv\Scripts\activate
+Installa le librerie: pip install -r requirements.txt
+
+Crea il Database:
+python manage.py makemigrations
+python manage.py migrate
+
+Crea il tuo utente: python manage.py createsuperuser (inserisci nome e password).
+Avvia Django: python manage.py runserver
+
+Apri un secondo terminale (lascia il primo acceso con Django) e vai nella cartella 
+frontend:
+Entra nella cartella: cd frontend
+Scarica i pacchetti: npm install 
+(questo installerà Three.js, React-Three-Fiber e tutto il necessario 
+leggendo dal file package.json).
+Avvia React: npm start
+
+
+
+
+
+
+Ecco il messaggio che ti consiglio di copiare e incollarmi all'inizio della nuova 
+chat:
+"Ciao! Riprendiamo il progetto della Galleria d'Arte. Lo stack è Django (backend) 
+e React (frontend) con Three.js.
+Stato attuale:
+Backend: Django gestisce il modello Opera (titolo, immagine, citazione, 
+descrizione) e lo serve via API (DRF) su /api/opere/.
+Frontend: React usa uno scroll fluido. In Scena3D.js c'è uno Zonoedro 
+(icosaedro wireframe) che ruota con lo scroll.
+Modalità Saturno: Al click su un'immagine, si attiva un overlay 3D con 
+l'immagine al centro (via Html di Drei) e un anello triangolato increspato 
+(non rotante) che circonda l'opera senza sovrapporsi.
+Layout: Sfondo nero #050505, immagine a sinistra, barra sfumata al centro 
+e testo con word-break a destra. Navbar elegante che scompare allo scroll.
+Ho tutto il codice su GitHub. Oggi vorrei lavorare su: [scrivi qui cosa vuoi fare]."
+
+
+
+
+
+
+
+
+

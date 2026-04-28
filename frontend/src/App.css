@@ -1,3 +1,14 @@
+@font-face {
+  font-family: 'MonotonCustom';
+  src: url('https://fonts.gstatic.com/s/monoton/v22/5h1aiZUrOngCibe4Tk_LQlS7.woff2') format('woff');
+}
+
+.font-artistico {
+  font-family: 'MonotonCustom', cursive;
+}
+
+
+
 /* RESET E SFONDO FONDAMENTALE */
 body, html {
   margin: 0;
