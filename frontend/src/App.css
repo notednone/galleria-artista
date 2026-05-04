@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+
 @font-face {
   font-family: 'MonotonCustom';
   src: url('https://fonts.gstatic.com/s/monoton/v22/5h1aiZUrOngCibe4Tk_LQlS7.woff2') format('woff');
@@ -34,9 +36,10 @@ body, html {
   padding: 30px 0;
   display: flex;
   justify-content: center;
-  z-index: 500; /* Sopra tutto tranne il fullscreen */
+  z-index: 10001; /* Lo mettiamo altissimo, sopra i commenti */
   background: linear-gradient(to bottom, rgba(5,5,5,0.8), transparent);
 }
+
 
 .nav-links {
   display: flex;
@@ -99,13 +102,13 @@ body, html {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center; /* Centriamo il blocco totale */
   padding: 0 5vw;
   box-sizing: border-box;
 }
 
 .lato-sinistro {
-  flex: 0 0 55%;
+  flex: 0 0 55%; /* FISSO: l'immagine occupa sempre il 55% */
   height: 80vh;
   display: flex;
   justify-content: center;
@@ -114,32 +117,35 @@ body, html {
 
 .immagine-opera {
   max-width: 100%;
-  max-height: 100%;
+  max-height: 80vh; /* Aumentata per prendere la porzione verticale ampia */
   object-fit: contain;
+  background-color: rgba(255, 255, 255, 0.02);
   cursor: zoom-in;
+  transition: transform 0.3s ease;
 }
 
 .divisore-sfumato {
-  flex: 0 0 1px;
+  flex: 0 0 1px; /* FISSO: non si sposta mai */
   height: 60vh;
   background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.4), transparent);
-  margin: 0 4vw;
+  margin: 0 4vw; /* Spazio costante tra immagine e testo */
 }
 
 .lato-destro {
-  flex: 0 0 30%; /* Blocca la larghezza al 30% dello schermo */
+  flex: 0 0 30%; /* FISSO: il testo occupa sempre il 30% */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-right: 5vw; /* Margine di sicurezza dal bordo destro */
-  box-sizing: border-box; /* Include il padding nel calcolo del 30% */
+  text-align: left;
+  box-sizing: border-box;
   
-  /* REGOLE ANTI-PAROLA LUNGHISSIMA */
-  overflow-wrap: break-word;  /* Forza l'andata a capo */
-  word-wrap: break-word;      /* Compatibilità vecchia */
-  word-break: break-word;     /* Spezza la parola se necessario */
-  hyphens: auto;              /* Se possibile, mette il trattino */
+  /* Mantengo tutte le tue regole anti-parola lunga */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
 }
+
 
 .descrizione-opera {
   font-size: 1.1rem;
@@ -174,6 +180,61 @@ body, html {
   font-size: 0.7rem;
   z-index: 9001;
 }
+
+/* Container del tasto */
+.container-toggle {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+  background-color: black;
+}
+
+.bottone-toggle {
+  background: transparent;
+  border: 1px solid #D4AF37; /* Oro come i commenti */
+  color: #D4AF37;
+  padding: 10px 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  cursor: pointer;
+  letter-spacing: 2px;
+  transition: 0.3s;
+}
+
+.bottone-toggle:hover {
+  background: #D4AF37;
+  color: black;
+}
+
+/* Layout Griglia 3 per riga */
+.layout-griglia {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px; /* Spazio minimo e pulito tra le opere */
+  padding: 20px;
+}
+
+.card-opera-griglia {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Forza il quadrato perfetto */
+  overflow: hidden;
+  background-color: #111;
+}
+
+.card-opera-griglia img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Riempie il quadrato tagliando leggermente i bordi (senza distorcere) */
+  filter: grayscale(1);
+  transition: 0.5s ease;
+}
+
+.card-opera-griglia img:hover {
+  filter: grayscale(0);
+  transform: scale(1.05);
+}
+
+
 
 /* MOBILE ADAPTATION */
 @media (max-width: 768px) {

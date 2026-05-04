@@ -11,6 +11,19 @@ http://localhost:8000/admin/
 http://localhost:3000
 
 
+
+git add .
+(Prepara tutti i file modificati per il caricamento).
+
+git commit -m "Descrizione della modifica"
+(Salva le modifiche localmente con un breve messaggio descrittivo).
+
+git push
+(Invia le modifiche effettive alla repository su GitHub).
+
+
+
+
 git clone https://github.com    "la repository"
 cd galleria-artista
 
