@@ -10,3 +10,7 @@ class OperaList(generics.ListAPIView):
         # Passiamo il contesto della richiesta al serializer
         return {'request': self.request}
 
+def contatti(request):
+    return render(request, 'contatti.html')
+
+

@@ -3,6 +3,7 @@ import './App.css';
 import Scena3D from './Scena3D';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { initPaginaCommenti } from './PaginaCommenti';
+import { gsap } from 'gsap'
 
 
 
@@ -36,6 +37,38 @@ function SezioneCommenti() {
     </div>
   );
 }
+
+
+function SezioneContatti() {
+  const avviaAnimazione = () => {
+    };
+
+
+  return (
+    <div style={{ 
+      width: '100vw', height: '100vh', background: '#0a192f', 
+      display: 'flex', justifyContent: 'center', alignItems: 'center',
+      position: 'fixed', top: 0, left: 0, zIndex: 9999 
+    }}>
+      
+      <svg id="araldica-svg" viewBox="0 0 600 600" style={{ width: '90%', maxHeight: '90vh', overflow: 'visible' }}>
+        {/* Qui domani inseriremo l'asset professionale */}
+        <text 
+          x="300" y="300" 
+          textAnchor="middle" 
+          fill="#f9f7f2" 
+          style={{ fontFamily: 'serif', fontSize: '18px' }}
+        >
+          Pronti per la nuova configurazione...
+        </text>
+      </svg>
+      
+    </div>
+  );
+}
+
+
+
 
 
 
@@ -74,27 +107,35 @@ function App() {
       <div className="main-container">
         {/* rimosso Scena3D da qui per non sovrapporsi ai commenti */}
 
-        {mostraNav && !immagineSelezionata && (
-          <nav className="navbar-elegante">
-            <div className="nav-links">
-              <Link to="/" style={{ color: 'inherit', textDecoration: 'none', marginRight: '20px' }}>GALLERIA</Link>
-              <Link 
-               to="/commenti" 
-                style={{ color: 'inherit', textDecoration: 'none', marginRight: '20px' }}
-                onClick={() => {
-                // Forza il ritorno all'ellissoide se siamo già nella sezione
-                if (typeof window.resetCommenti === "function") {
-                window.resetCommenti();
-                }
-              }}
-              >
-                COMMENTI
-              </Link>
-              <span>SU DI ME</span>
-              <span>CONTATTI</span>
-            </div>
-          </nav>
-        )}
+{mostraNav && !immagineSelezionata && (
+  <nav className="navbar-elegante">
+    <div className="nav-links">
+      <Link to="/" style={{ color: 'inherit', textDecoration: 'none', marginRight: '20px' }}>
+        GALLERIA
+      </Link>
+      
+      <Link 
+        to="/commenti" 
+        style={{ color: 'inherit', textDecoration: 'none', marginRight: '20px' }}
+        onClick={() => {
+          if (typeof window.resetCommenti === "function") {
+            window.resetCommenti();
+          }
+        }}
+      >
+        COMMENTI
+      </Link>
+
+      <span style={{ marginRight: '20px', cursor: 'pointer' }}>SU DI ME</span>
+
+      {/* Link ai Contatti sistemato in stile React */}
+      <Link to="/contatti" style={{ color: 'inherit', textDecoration: 'none' }}>
+        CONTATTI
+      </Link>
+    </div>
+  </nav>
+)}
+
 
         <Routes>
           {/* PAGINA 1: LA HOME */}
@@ -162,6 +203,7 @@ function App() {
             </>
           } />
           <Route path="/commenti" element={<SezioneCommenti />} />
+          <Route path="/contatti" element={<SezioneContatti />} />
         </Routes>
       </div>
     </Router>

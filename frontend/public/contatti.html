@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/contatti_animazione.css' %}">
+
+<div id="contatti-page-container" style="min-height: 80vh; display: flex; justify-content: center; align-items: center;">
+    <!-- Qui è dove "scateneremo" l'animazione della mano -->
+    <div id="trigger-animazione">
+        <p style="cursor: pointer; font-family: serif; font-size: 1.2rem;">Clicca per iniziare la composizione</p>
+    </div>
+</div>
+
+{% include 'components/animazione_mano.html' %}
+{% endblock %}

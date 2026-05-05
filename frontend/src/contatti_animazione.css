@@ -1,0 +1,50 @@
+/* Colori e Contenitore per l'animazione Araldica */
+:root {
+    --verde-acceso: #2d5a27;
+    --bianco-avorio: #f9f7f2;
+    --blu-scuro: #0a192f;
+    --rosso-linea: #b22222;
+}
+
+#messaggio-contatti-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none; /* Inizialmente nascosto */
+    z-index: 9999;
+    background: rgba(10, 25, 47, 0.8); /* Sfondo blu scuro semi-trasparente */
+    justify-content: center;
+    align-items: center;
+}
+
+#araldica-svg {
+    width: 90%;
+    max-width: 800px;
+    height: auto;
+    overflow: visible;
+}
+
+/* Stile per i rami che appariranno */
+.ramo-arboreo {
+    fill: none;
+    stroke: var(--verde-acceso);
+    stroke-width: 2;
+    stroke-linecap: round;
+}
+
+.mano-gemma {
+    fill: var(--bianco-avorio);
+    stroke: var(--rosso-linea);
+    stroke-width: 0.5;
+}
+
+.ramo {
+  filter: drop-shadow(0px 0px 2px rgba(45, 90, 39, 0.5));
+  transition: stroke 0.5s ease;
+}
+
+#mano-forma {
+  filter: drop-shadow(0px 0px 5px rgba(178, 34, 34, 0.3));
+}

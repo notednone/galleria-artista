@@ -24,6 +24,7 @@ from galleria.views import OperaList
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/opere/', OperaList.as_view()),
+    path('contatti/', views.contatti, name='contatti'),
 ]
 
 # AGGIUNGI QUESTO BLOCCO IN FONDO

@@ -13,7 +13,7 @@ http://localhost:3000
 
 
 git add .
-(Prepara tutti i file modificati per il caricamento).
+(Prepara tutti i file modificati per il caricamento)."
 
 git commit -m "Descrizione della modifica"
 (Salva le modifiche localmente con un breve messaggio descrittivo).
@@ -24,7 +24,7 @@ git push
 
 
 
-git clone https://github.com    "la repository"
+git clone https://github.com    "https://github.com/notednone/galleria-artista"
 cd galleria-artista
 
 Crea l'ambiente: python -m venv venv
